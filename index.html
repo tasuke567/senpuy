@@ -6,9 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        @media (max-width: 768px) {
+            .container-fluid {
+                width: 100%;
+            }
+        }
+
         body {
             height: 100vh;
-            background: linear-gradient(90deg, #f24e37,#FF2D2D);
+            background: linear-gradient(90deg, #f24e37, #FF2D2D);
             text-align: center;
         }
 
@@ -99,28 +105,28 @@
 
     <div class="container-fluid p-3 " style="position: relative; text-align: center;">
         <div class="container-fluid p-3" style="display: inline-block; width: 300px;" id="moon1">
-            <svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" fill="#FF0000" class="bi bi-moon"
+            <svg xmlns="http://www.w3.org/2000/svg"  fill="#FF0000" class="bi bi-moon"
                 viewBox="0 0 16 16">
                 <path
                     d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z" />
             </svg>
         </div>
         <div class="container-fluid p-3" style="display: inline-block ; width: 300px;" id="moon2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" fill="#FF0000" class="bi bi-moon-fill"
+            <svg xmlns="http://www.w3.org/2000/svg" fill="#FF0000" class="bi bi-moon-fill"
                 viewBox="0 0 16 16">
                 <path
                     d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
             </svg>
         </div>
         <div class="container-fluid p-3" style="display: none; width: 300px;" id="moon3">
-            <svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" fill="#FF0000" class="bi bi-moon"
+            <svg xmlns="http://www.w3.org/2000/svg"  fill="#FF0000" class="bi bi-moon"
                 viewBox="0 0 16 16">
                 <path
                     d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z" />
             </svg>
         </div>
         <div class="container-fluid p-3" style="display: none ; width: 300px;" id="moon4">
-            <svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" fill="#FF0000" class="bi bi-moon-fill"
+            <svg xmlns="http://www.w3.org/2000/svg"  fill="#FF0000" class="bi bi-moon-fill"
                 viewBox="0 0 16 16">
                 <path
                     d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
@@ -131,7 +137,7 @@
 
 
     <div class="container mt-3 p-3" style="text-align: center;">
-        
+
         <p id="des" class></p>
         <button type="button" class="btn-dark btn">สุ่ม</button>
     </div>
@@ -143,8 +149,31 @@
         const moon3 = document.getElementById("moon3");
         const moon4 = document.getElementById("moon4");
         const button = document.querySelector("button");
-        const element = document.querySelector(".bi .bi-moon-fill");
-         
+        const context = document.querySelector("p");
+
+
+        window.addEventListener("resize", function () {
+            const width = window.innerWidth;
+
+
+            if (width < 768) {
+                moon1.style.width = "30%";
+                moon2.style.width = "30%";
+                moon3.style.width = "30%";
+                moon4.style.width = "30%";
+                context.style.fontSize = "26px";
+            } else {
+                moon1.style.width = "300px";
+                moon2.style.width = "300px";
+                moon3.style.width = "300px";
+                moon4.style.width = "300px";
+                context.style.fontSize = "40px";
+                
+                
+
+            }
+        });
+
 
         button.addEventListener("click", function () {
             // Get a random number between 0 and 2
