@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 100vh;
+            background: linear-gradient(90deg, #f24e37,#FF2D2D);
+            text-align: center;
+        }
+
+        p {
+            font-size: 30px;
+        }
+
+        .container-fluid {
+            background-color: #FF5959;
+            backdrop-filter: blur(5px);
+        }
+
+
+        .slider-thumb::before {
+            position: absolute;
+            content: "";
+            left: 30%;
+            top: 20%;
+            width: 450px;
+            height: 450px;
+            background: #17141d;
+            border-radius: 62% 47% 82% 35% / 45% 45% 80% 66%;
+            will-change: border-radius, transform, opacity;
+            animation: sliderShape 5s linear infinite;
+            display: block;
+            z-index: -1;
+            -webkit-animation: sliderShape 5s linear infinite;
+        }
+
+        @keyframes sliderShape {
+
+            0%,
+            100% {
+                border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+                transform: translate3d(0, 0, 0) rotateZ(0.01deg);
+            }
+
+            34% {
+                border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
+                transform: translate3d(0, 5px, 0) rotateZ(0.01deg);
+            }
+
+            50% {
+                transform: translate3d(0, 0, 0) rotateZ(0.01deg);
+            }
+
+            67% {
+                border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+                transform: translate3d(0, -3px, 0) rotateZ(0.01deg);
+            }
+        }
+
+        .shake {
+            animation: shake 1s linear;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translateX(0);
+            }
+
+            10% {
+                transform: translateX(-10px);
+            }
+
+            20% {
+                transform: translateX(10px);
+            }
+
+            30% {
+                transform: translateX(-10px);
+            }
+
+            40% {
+                transform: translateX(10px);
+            }
+
+            50% {
+                transform: translateX(0);
+            }
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container-fluid p-3 " style="position: relative; text-align: center;">
+        <div class="container-fluid p-3" style="display: inline-block; width: 300px;" id="moon1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" fill="#FF0000" class="bi bi-moon"
+                viewBox="0 0 16 16">
+                <path
+                    d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z" />
+            </svg>
+        </div>
+        <div class="container-fluid p-3" style="display: inline-block ; width: 300px;" id="moon2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" fill="#FF0000" class="bi bi-moon-fill"
+                viewBox="0 0 16 16">
+                <path
+                    d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
+            </svg>
+        </div>
+        <div class="container-fluid p-3" style="display: none; width: 300px;" id="moon3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" fill="#FF0000" class="bi bi-moon"
+                viewBox="0 0 16 16">
+                <path
+                    d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z" />
+            </svg>
+        </div>
+        <div class="container-fluid p-3" style="display: none ; width: 300px;" id="moon4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" fill="#FF0000" class="bi bi-moon-fill"
+                viewBox="0 0 16 16">
+                <path
+                    d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
+            </svg>
+        </div>
+    </div>
+
+
+
+    <div class="container mt-3 p-3" style="text-align: center;">
+        
+        <p id="des" class></p>
+        <button type="button" class="btn-dark btn">สุ่ม</button>
+    </div>
+
+
+    <script>
+        const moon1 = document.getElementById("moon1");
+        const moon2 = document.getElementById("moon2");
+        const moon3 = document.getElementById("moon3");
+        const moon4 = document.getElementById("moon4");
+        const button = document.querySelector("button");
+        const element = document.querySelector(".bi .bi-moon-fill");
+         
+
+        button.addEventListener("click", function () {
+            // Get a random number between 0 and 2
+            const randomNumber = Math.floor(Math.random() * 4);
+            console.log(randomNumber);
+
+            moon1.classList.add("shake");
+            moon2.classList.add("shake");
+            moon3.classList.add("shake");
+            moon4.classList.add("shake");
+
+
+
+            // Switch the moon image based on the random number
+            if (randomNumber === 0) {
+
+                moon1.style.display = "inline-block";
+                moon2.style.display = "none";
+                moon3.style.display = "inline-block";
+                moon4.style.display = "none";
+                document.getElementById("des").innerHTML = "<strong>หงาย หงาย</strong> <br> <u>คำถามครุมเครือ สุ่่มใหม่อีกครั้ง</u>";
+            } else if (randomNumber === 1) {
+
+                moon1.style.display = "none";
+                moon2.style.display = "inline-block";
+                moon3.style.display = "none";
+                moon4.style.display = "inline-block";
+                document.getElementById("des").innerHTML = "<strong>คว่ำ คว่ำ</strong> <br><u>ทำนายไม่สัมฤทธิ์ ไม่เป็นไม่ตามปรารถ</u>";
+            } else if (randomNumber === 2) {
+
+                moon1.style.display = "inline-block";
+                moon2.style.display = "none";
+                moon3.style.display = "none";
+                moon4.style.display = "inline-block";
+                document.getElementById("des").innerHTML = "<strong>หงาย คว่ำ</strong> <br><u>ทำนายสัมฤทธิ์ เป็นไปตามปรารถนา</u>";
+            }
+            else if (randomNumber === 3) {
+
+                moon1.style.display = "none";
+                moon2.style.display = "inline-block";
+                moon3.style.display = "inline-block";
+                moon4.style.display = "none";
+                document.getElementById("des").innerHTML = "<strong>คว่ำ หงาย</strong> <br><u>ทำนายสัมฤทธิ์ เป็นไปตามปรารถนา</u>";
+            }
+        });
+
+    </script>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
